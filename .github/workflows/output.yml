@@ -7,4 +7,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output Meta Info
-        run: echo "${{ github }}"
+        run: echo "${{ toJSON(github) }}"
