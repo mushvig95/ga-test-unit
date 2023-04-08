@@ -13,7 +13,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run linting test
-        run: npm lint
+        run: npm run lint
   run-tests:
     needs: check-linting
     runs-on: ubuntu-latest
