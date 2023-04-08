@@ -6,10 +6,6 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
       - name: Install dependencies
         run: npm install
       - name: Run linting test
@@ -43,7 +39,7 @@ jobs:
       - name: Deploy
         run: |
           echo "Building..."
-          npm build
+          npm run build
           echo "Build complete!"
 
 
