@@ -1,0 +1,10 @@
+name: Github Actions Output
+on:
+  issues:
+    types: [opened, created, edited, deleted]
+jobs:
+  output-meta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output Meta Info
+        run: echo "${{ github }}"
