@@ -45,7 +45,7 @@ jobs:
           echo "Build complete!"
       - name: Publish JS filename
         id: js_file_name
-        run: find dist/assets/*.js -type f-execdir echo 'js-file-name={}' >> $GITHUB_OUTPUT ';'
+        run: find dist/assets/*.js -type f -execdir echo 'js-file-name={}' >> $GITHUB_OUTPUT ';'
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
