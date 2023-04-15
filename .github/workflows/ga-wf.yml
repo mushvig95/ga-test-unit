@@ -99,6 +99,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output title
-        run: echo "Failed jobs..."
+        run: echo "There are failed jobs ${{ github.actor }}..."
 
 
