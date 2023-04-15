@@ -45,7 +45,7 @@ jobs:
           name: test-report
           path: test.json
   test-job:
-    needs: [lint, deploy]
+    needs: [check-linting, deploy]
     if: failure()
     runs-on: ubuntu-latest
     steps:
