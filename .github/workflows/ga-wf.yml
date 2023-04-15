@@ -44,6 +44,13 @@ jobs:
         with:
           name: test-report
           path: test.json
+  test-job:
+    needs: [lint, deploy]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output title
+        run: echo "Failed jobs..."
   build:
     needs: run-tests
     runs-on: ubuntu-latest
