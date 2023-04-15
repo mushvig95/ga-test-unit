@@ -1,7 +1,8 @@
 name: Reusable Job
 on: workflow_call
 jobs:
-  deploy: ubuntu-latest
-  steps:
-    - name: Output info
-      run: echo "REUSABLE IS LIVE"
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output info
+        run: echo "REUSABLE IS LIVE"
