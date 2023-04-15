@@ -10,16 +10,17 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Cache dependencies
+        id: cache_obj
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: node_modules
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
+        if: steps.cache_obj.outputs.cache-hit != 'true'
         run: npm install
       - name: Run linting test
         run: npm run lint
   run-tests:
-    needs: check-linting
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -29,11 +30,13 @@ jobs:
         with:
           node-version: 18
       - name: Cache dependencies
+        id: cache_obj
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: node_modules
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
+        if: steps.cache_obj.outputs.cache-hit != 'true'
         run: npm install
       - name: Run tests
         id: testing_step
@@ -57,11 +60,13 @@ jobs:
         with:
           node-version: 18
       - name: Cache dependencies
+        id: cache_obj
         uses: actions/cache@v3
         with:
-          path: ~/.npm
+          path: node_modules
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
+        if: steps.cache_obj.outputs.cache-hit != 'true'
         run: npm install
       - name: Deploy
         run: |
