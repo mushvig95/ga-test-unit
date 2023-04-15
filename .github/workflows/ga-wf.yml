@@ -100,10 +100,11 @@ jobs:
         run: echo "Deploying..."
   test-job:
     needs: [check-linting, deploy]
-    if: failure()
-    runs-on: ubuntu-latest
-    steps:
-      - name: Output title
-        run: echo "There are failed jobs ${{ github.actor }}..."
+    uses: ./.github/workflows/reusable.yml
+    # if: failure()
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - name: Output title
+    #     run: echo "There are failed jobs ${{ github.actor }}..."
 
 
