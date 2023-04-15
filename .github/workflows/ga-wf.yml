@@ -99,7 +99,7 @@ jobs:
       - name: Deploy
         run: echo "Deploying..."
   test-job:
-    needs: [check-linting, deploy]
+    # needs: [check-linting, deploy]
     uses: ./.github/workflows/reusable.yml
     # if: failure()
     # runs-on: ubuntu-latest
